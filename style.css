@@ -4001,3 +4001,16 @@ section:not(.hero).show {
         color 0.3s ease,
         transform 0.3s ease;
 }
+/* CONTACT TEXT ALIGNMENT */
+
+.contact-link > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.contact-label,
+.contact-value {
+    display: block;
+}
