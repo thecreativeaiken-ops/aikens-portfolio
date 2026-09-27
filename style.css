@@ -4014,3 +4014,95 @@ section:not(.hero).show {
 .contact-value {
     display: block;
 }
+/* =========================================
+   AIKEN'S WRLD — LIVING BACKGROUND
+   ========================================= */
+
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Moving atmospheric glow */
+body::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(3, 150, 255, 0.13) 0%,
+        rgba(3, 150, 255, 0.05) 35%,
+        transparent 70%
+    );
+    filter: blur(35px);
+    top: 5%;
+    left: -180px;
+    z-index: -1;
+    pointer-events: none;
+    animation: ambientMove 16s ease-in-out infinite alternate;
+}
+
+/* Second slow-moving glow */
+body::after {
+    content: "";
+    position: fixed;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(3, 150, 255, 0.09) 0%,
+        rgba(3, 150, 255, 0.03) 40%,
+        transparent 70%
+    );
+    filter: blur(40px);
+    right: -180px;
+    bottom: 5%;
+    z-index: -1;
+    pointer-events: none;
+    animation: ambientMove2 20s ease-in-out infinite alternate;
+}
+
+/* Very slow movement */
+@keyframes ambientMove {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(180px, 100px) scale(1.15);
+    }
+
+    100% {
+        transform: translate(60px, 240px) scale(0.95);
+    }
+}
+
+@keyframes ambientMove2 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-160px, -100px) scale(1.12);
+    }
+
+    100% {
+        transform: translate(-40px, -220px) scale(0.9);
+    }
+}
+
+/* Keep phones smooth */
+@media (max-width: 700px) {
+    body::before {
+        width: 350px;
+        height: 350px;
+    }
+
+    body::after {
+        width: 320px;
+        height: 320px;
+    }
+}
